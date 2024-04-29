@@ -376,7 +376,7 @@ soc (Ideal, Ideal) := (I, P) -> (
   XP := ring I;
   if not(isMember(true, (stableMax(I)/(Q->P==Q)))) then XP = product(select(stablePrimes(I), Q -> (Q!=P and isSubset(P,Q)==true)));
   f := reesMap(I);
-  R := source f/(sub(I, source f) + ker f);
+  R := source f/ker f;
   IR := sub(I,R);
   PR := sub(P,R);
   QR := if not(XP===ring I) then sub(P + saturate XP, R) else ideal(1_R);
