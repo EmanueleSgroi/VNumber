@@ -379,9 +379,9 @@ soc (Ideal, Ideal) := (I, P) -> (
   R := source f/ker f;
   IR := sub(I,R);
   PR := sub(P,R);
-  QR := if not(XP===ring I) then sub(P + saturate XP, R) else ideal(1_R);
+  QR := if not(XP===ring I) then sub(XP, R) else ideal(1_R);
   A := quotient(IR, PR);
-  B := quotient(IR, QR);
+  B := intersect(quotient(IR, PR), saturate(IR, QR));
   A/B
 );
 
